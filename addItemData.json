@@ -1,0 +1,17 @@
+[
+  {
+    "IsDigital": false,
+    "SellLimit": 24.0,
+    "cBarcode": "8806098688555",
+    "cConversionFactor": 1.0,
+    "cFromStoreId": "24",
+    "cProductNote": "",
+    "cSalesUnit": "pza",
+    "cSelectedUnit": "pza",
+    "cStoreSupply": true,
+    "hasCombo": false,
+    "itemid": "344",
+    "productId": "344",
+    "quantity": 1.0
+  }
+]

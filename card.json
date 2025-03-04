@@ -1,0 +1,14 @@
+{
+    "paymentMethodId": "CREDIT_CARD",
+    "amount": 298,
+    "c_bankIDnumber": "522375",
+    "c_cardIcon": "https://www.soriana.com/on/demandware.static/-/Library-Sites-SorianaSharedLib/default/images/carriers/mastercard^@2x.png",
+    "c_storedPaymentUUID": "84eeced5-bdb4-4cc8-a4e4-5c62967922bc",
+    "paymentCard": {
+        "cardType": "Master Card",
+        "credit_card_expired": false,
+        "creditCardToken": "7010000000805076660-2EECD6A8BF7D10A0E0631E588E0A3F9F",
+        "number": "5223-XXXX-XXXX-6660",
+        "numberLastDigits": "6660"
+    }
+}

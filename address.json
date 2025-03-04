@@ -1,0 +1,21 @@
+{
+    "address1": "Managua",
+    "addressId": "",
+    "c_buildingNumber": "",
+    "c_colonia": "Las Cumbres",
+    "c_latitude": 19.497800069474714,
+    "c_longitude": -99.1269001364708,
+    "c_reference": "",
+    "c_streetNumber": "931",
+    "city": "Monterrey",
+    "countryCode": "MX",
+    "firstName": "campa campa",
+    "fullName": "campa campa ",
+    "lastName": "",
+    "phone": "1233456789",
+    "postalCode": "64610",
+    "preferred": false,
+    "selected": false,
+    "stateCode": "Nuevo León",
+    "temporalStoreId": "24"
+}

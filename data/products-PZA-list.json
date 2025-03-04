@@ -1,0 +1,18 @@
+{
+    "products": [
+      {
+        "productId": "1110896",
+        "quantity": 1,
+        "cBarcode": "7501031310258",
+        "desc": "Producto 1",
+        "price": 100.0
+      },
+      {
+        "productId": "12345",
+        "quantity": 1,
+        "storeId": "0024",
+        "shipmentId": "grocery"
+      }      
+    ]
+  }
+  
