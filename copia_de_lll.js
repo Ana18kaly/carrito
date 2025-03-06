@@ -8,7 +8,7 @@ const orden = require('./orden.json');
 const address = require('./address.json');
 const card = require('./card.json');
 const crearCarrito = require('./crearCarrito.json');
-//const SP_creditCard = require("./data/startOrderPayment/cc.json");
+//hola
 const { url } = require("inspector");
 const { sign } = require("crypto");
 
