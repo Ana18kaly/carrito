@@ -12,7 +12,6 @@ const crearCarrito = require('./crearCarrito.json');
 const { url } = require("inspector");
 const { sign } = require("crypto");
 
-// LoginQA 
 function getBasicToken(email, password) {
     const authHeader =
         "Basic " + Buffer.from(`${email}:${password}`).toString("base64");
@@ -437,3 +436,6 @@ async function sleep(seconds) {
 main().catch(error => {
     console.error("Error en el flujo:", error.message);
 });//si pasa un error, se imprime el msj 
+
+
+//holaa
