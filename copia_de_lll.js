@@ -178,7 +178,6 @@ async function AddItem(user, basketId) {
     }
 }
 
-
 // SplitShipment 
 async function splitShipment(user) {
     const authHeader = user.bearerToken;

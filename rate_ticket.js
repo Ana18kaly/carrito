@@ -1,7 +1,11 @@
+const axios = require("axios");
+const config = require("./config.json");
+
 async function rateTicket(user) {
     console.log("llamando a rateticket");
     const authHeader = user.bearerToken;
-    const config = {
+    const SUBSCRIPTION_KEY = config.subscriptionKey;
+    const requestConfig = {
         method: "post",
         url: "https://apimanagementsoriana.azure-api.net/qa01carrito/v3/api/Checkout/RateTicket",
         params: {
@@ -9,16 +13,17 @@ async function rateTicket(user) {
             
         },
         headers: {
-            "Ocp-Apim-Subscription-Key": "fc362fe582b248f6a11d9241f6948fff",
+            "Ocp-Apim-Subscription-Key": SUBSCRIPTION_KEY,
             "Content-Type": "application/json",
             Authorization: authHeader,
         },
         data: rateData,
     };
     try {
-        await axios(config);
+        await axios(requestConfig);
         console.log("✅ Ticket calificado correctamente.");
     } catch (error) {
         console.error("❌ Error en rateTicket", error.message);
     }
 }
+module.exports = {rateTicket};

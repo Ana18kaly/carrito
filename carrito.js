@@ -1,3 +1,7 @@
+const axios = require("axios");
+const createBasket = require("./crearCarrito.json"); 
+//const crearCarrito = require("./crearCarrito.json"); 
+
 async function createBasket(user) {
     const authHeader = user.bearerToken;
     const config = {
@@ -10,7 +14,7 @@ async function createBasket(user) {
         },
         headers: {
             "Content-Type": "application/json",
-            Authorization: user.bearerToken
+            Authorization: authHeader //user.bearerToken 
         },
         data: crearCarrito
         
@@ -30,3 +34,5 @@ async function createBasket(user) {
         return null;
     }
 }
+
+module.exports = {createBasket};

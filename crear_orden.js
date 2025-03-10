@@ -1,24 +1,29 @@
+const axios = require("axios");
+const config = require("./config.json");
+
 async function createOrder(user) {
     console.log("llamando a createorder");
     const authHeader = user.bearerToken;
-    const config = {
+
+    const SUBSCRIPTION_KEY = config.subscriptionKey;
+
+    const requestConfig = {
         url: "https://apimanagementsoriana.azure-api.net/qa01orden/v3/api/Orders/create",
         method: "post",
-        params: {         
-        },
+        params: {},
         headers: {
             "Content-Type": "application/json",
             Authorization: authHeader, 
-            "ocp-apim-subscription-key": "fc362fe582b248f6a11d9241f6948fff",
+            "ocp-apim-subscription-key": SUBSCRIPTION_KEY,
             "version": "32.1.8.1",
             "dispositivo": "App_Android", 
             "content-type": "application/json; charset=UTF-8"
         },
-        data: orden
+        data: orden,
 
     };
     try {
-        const response = await axios(config);
+        const response = await axios(requestConfig);
 
         if (response.data && response.data.orderNo) {
             console.log("✅ Número de orden:", response.data.orderNo);
@@ -36,13 +41,14 @@ async function createOrder(user) {
             console.error("📌 Detalles del error:",  JSON.stringify(error.response.data, null, 2));
         }
 
-        // Manejo de error por conexión y reintento
+        // manejo de error por conexión y reintento
         if (error.code === 'ECONNRESET' && retries > 0) {
             console.log(`🔄 Reintentando... Intentos restantes: ${retries}`);
-            await new Promise(resolve => setTimeout(resolve, 1000)); // Espera 1s antes de reintentar
+            await new Promise(resolve => setTimeout(resolve, 1000)); // espera 1seg antes de reintentar
             return createOrder(user, retries - 1);
         }
 
         return null;
     }
 }
+module.exports = {createOrder};

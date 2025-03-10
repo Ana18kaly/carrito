@@ -1,7 +1,12 @@
+const axios = require("axios");
+const config = require("./config.json");
+
+
 async function deleteBasket(user, basketId) {
     const authHeader = user.bearerToken;
+    const SUBSCRIPTION_KEY = config.subscriptionKey;
     if (basketId) {
-        const config = {
+        const requestConfig = {
             method: "delete",
             url: "https://apimanagementsoriana.azure-api.net/qa01carrito/v3/api/Basket",
             params: {
@@ -10,18 +15,19 @@ async function deleteBasket(user, basketId) {
                 storeId: user.storeId
             },
             headers: {
-                "Ocp-Apim-Subscription-Key": "fc362fe582b248f6a11d9241f6948fff", 
+                "Ocp-Apim-Subscription-Key": SUBSCRIPTION_KEY, 
                 "Content-Type": "application/json",
             Authorization: authHeader,
             },
         };
         try {
-            const response = await axios(config);
-            console.log(response.data);
+            const response = await axios(requestConfig);
+            console.log("✅ Carrito eliminado:", response.data);
         } catch (error) {
-            console.error("❌ Error al eliminar el basket:", error.message);
+            console.error("❌ Error al eliminar el carrito:", error.message);
         }
     } else {
-        console.log("EL USUARIO NO TENÍA BASKET");
+        console.log("EL USUARIO NO TENÍA CARRITO");
     }
 }
+module.exports = {deleteBasket};

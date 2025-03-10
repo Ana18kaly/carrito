@@ -1,7 +1,18 @@
+const axios = require("axios");
+const config = require("./config.json");
+
 async function AddItem(user, basketId) {
     console.log("🛒 Llamando a AddItem para el basket ID:", basketId);
+
+    const SUBSCRIPTION_KEY = config.subscriptionKey; 
+
+    if (!SUBSCRIPTION_KEY) {
+        console.error("❌ Error: La clave de suscripción no está configurada.");
+        return null;
+    }
+
     const authHeader = user.bearerToken;
-    const config = {
+    const requestConfig = {
         method: "post",
         url: "https://apimanagementsoriana.azure-api.net/qa01carrito/v3/api/Basket/Items",  
         params: {
@@ -10,14 +21,14 @@ async function AddItem(user, basketId) {
             postalCode: user.postalCode 
         },
         headers: {
-            "Ocp-Apim-Subscription-Key": "fc362fe582b248f6a11d9241f6948fff", 
+            "Ocp-Apim-Subscription-Key": SUBSCRIPTION_KEY, 
             "Content-Type": "application/json",
             Authorization: authHeader,
         },
         data: addItemData,  
     };
     try {
-        const response = await axios(config);
+        const response = await axios(requestConfig);
 
         
         if (response.data && response.data.basketId) {
@@ -32,3 +43,4 @@ async function AddItem(user, basketId) {
         return null;
     }
 }
+module.exports = {AddItem};

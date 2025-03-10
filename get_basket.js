@@ -1,7 +1,11 @@
+const axios = require("axios");
+const config = require("./config.json");
+
 async function getBasket(user, basketId) {
     const authHeader = user.bearerToken;
     console.log("llama a getbasket", basketId);
-    const config = {
+    const SUBSCRIPTION_KEY = config.subscriptionKey;
+    const  requestConfig = {
         method: "get",
         url: "https://apimanagementsoriana.azure-api.net/qa01carrito/v3/api/Basket/GetBasketMild",
         params: {
@@ -12,13 +16,13 @@ async function getBasket(user, basketId) {
             basketId: basketId
         },
         headers: {
-            Authorization: user.bearerToken,
+            Authorization: authHeader,//user.bearerToken,
             "Content-Type": "application/json",
-            "ocp-apim-subscription-key": "fc362fe582b248f6a11d9241f6948fff",
+            "ocp-apim-subscription-key": SUBSCRIPTION_KEY,
         },
     };
     try {
-        const response = await axios(config);
+        const response = await axios( requestConfig);
 
     
         if (response.data && response.data.basketId) {
@@ -33,3 +37,4 @@ async function getBasket(user, basketId) {
         return null;
     }
 }
+module.exports = {getBasket};

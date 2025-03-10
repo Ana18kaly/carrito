@@ -1,3 +1,17 @@
+const { login } = require('./auth');
+const { createBasket } = require('./carrito');
+const { getFreshBasket } = require('./refrescar');
+const { getBasket } = require('./get_basket');
+const { AddItem } = require('./add');
+const { splitShipment } = require('./envio');
+const { addAddress } = require('./direccion');
+const { validateStock } = require('./stock');
+const { addPayment } = require('./pago');
+const { rateTicket } = require('./rate_ticket');
+const { createOrder } = require('./crear_orden');
+
+
+
 async function main() {
     console.log("Inicio del flujo");
     const email = "ipdev@develop.mx";
