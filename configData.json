@@ -1,4 +1,22 @@
-{
-    "subscriptionKey": "fc362fe582b248f6a11d9241f6948fff"
+{ 
+  "auth": {
+    "username": "ipdev@develop.mx",
+    "password": "Perrito1q."
+  },
+  "subscriptionKey": "fc362fe582b248f6a11d9241f6948fff",
+  "apiUrls": {
+    "login": "https://apimanagementsoriana.azure-api.net/qa01customer/v3/api/Login", 
+    "getBasket": "https://apimanagementsoriana.azure-api.net/qa01carrito/v3/api/Basket/GetBasketMild",
+    "deleteBasket": "https://apimanagementsoriana.azure-api.net/qa01carrito/v3/api/Basket",
+    "createBasket": "https://apimanagementsoriana.azure-api.net/qa01carrito/v3/api/Basket",
+    "addItem": "https://apimanagementsoriana.azure-api.net/qa01carrito/v3/api/Basket/Items",
+    "addAddress": "https://apimanagementsoriana.azure-api.net/qa01customer/v3/api/Address",
+    "splitShipment": "https://apimanagementsoriana.azure-api.net/qa01carrito/v3/api/Checkout/SplitShipment",
+    "addPayment": "https://apimanagementsoriana.azure-api.net/qa01carrito/v3/api/Basket/payment_instruments",
+    "validateStock": "https://apimanagementsoriana.azure-api.net/qa01carrito/v3/api/Checkout/ValidateStock",
+    "rateTicket": "https://apimanagementsoriana.azure-api.net/qa01carrito/v3/api/Checkout/RateTicket",
+    "createOrder": "https://apimanagementsoriana.azure-api.net/qa01orden/v3/api/Orders/create"
+  },
+  "version": "32.1.8.1",
+  "dispositivo": "App_Android"
 }
-  
